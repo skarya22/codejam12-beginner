@@ -1,0 +1,59 @@
+{% extends 'movie/base.html' %}
+{% load static %}
+{% block title %}{{ movie.name }}{% endblock %}
+
+{% block content %}
+
+    <style>
+        .container {
+            width: 80%;
+            margin: 1% auto;
+        }
+
+
+        .row-top {
+            max-height: 25% !important;
+            height: auto;
+        }
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+
+    </style>
+
+    <br>
+
+    <div class="container">
+        <div class="row justify-content-center row-top">
+            <div class="col-sm-2">
+                {% if image == True %}
+                    <img class="card-img" src="{{ movie.cover.url }}">
+                {% else %}
+                    <p>Placeholder for image</p>
+                {% endif %}
+            </div>
+
+            <div class="col-sm-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h6>Name: {{ movie.name }}</h6>
+                        <h6>Length: {{ movie.length }} </h6>
+                        <h6>Publication Date: {{ movie.pub_date }}</h6> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row table-responsive-md">
+            
+            <p>Description: </p>
+
+            <p> {{ movie.description }} </p>
+        </div>
+    </div>
+{% endblock %}
